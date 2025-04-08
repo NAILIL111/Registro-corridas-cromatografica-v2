@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALS Lab Tracker</title>
+  <style>
+    :root {
+      --main-color: #005EB8; /* Color institucional ALS */
+      --accent-color: #F2F6FC;
+      --text-color: #333;
+      --bg-color: #fff;
+      --border-radius: 12px;
+      --shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--accent-color);
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--main-color);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: var(--bg-color);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--main-color);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: var(--main-color);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #004a99;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ALS - Registro de Tiempos Analíticos</h1>
+  </header>
+
+  <main>
+    <h2>Formulario de Registro</h2>
+    <form id="labForm">
+      <div class="form-group">
+        <label for="analista">Nombre completo del Analista</label>
+        <input type="text" id="analista" required>
+      </div>
+      <div class="form-group">
+        <label for="area">Área</label>
+        <input type="text" id="area" required>
+      </div>
+      <div class="form-group">
+        <label for="folios">Folios de análisis</label>
+        <input type="text" id="folios" required>
+      </div>
+      <div class="form-group">
+        <label for="producto">Producto</label>
+        <input type="text" id="producto" required>
+      </div>
+      <div class="form-group">
+        <label for="cliente">Cliente</label>
+        <input type="text" id="cliente" required>
+      </div>
+      <div class="form-group">
+        <label for="prueba">Prueba</label>
+        <input type="text" id="prueba" required>
+      </div>
+      <div class="form-group">
+        <label for="bitacora">Tiempo en preparación de Bitácora volante</label>
+        <input type="text" id="bitacora">
+      </div>
+      <div class="form-group">
+        <label for="insumos">Solicitud de insumos (Estándares, reactivos, columnas, material)</label>
+        <textarea id="insumos"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="soluciones">Preparación de soluciones (Fase móvil, soluciones de reactivo, estándar, muestra)</label>
+        <textarea id="soluciones"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="equipo">Preparación de equipo (Lavado, acondicionado, programación)</label>
+        <textarea id="equipo"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="condiciones">Condiciones de adecuabilidad</label>
+        <textarea id="condiciones"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="procesamiento">Procesamiento de datos y cálculo de resultados</label>
+        <textarea id="procesamiento"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="reporte">Reporte de resultados en sistema COPAN</label>
+        <textarea id="reporte"></textarea>
+      </div>
+
+      <button type="submit">Registrar</button>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('labForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const datos = {
+        analista: document.getElementById('analista').value,
+        area: document.getElementById('area').value,
+        folios: document.getElementById('folios').value,
+        producto: document.getElementById('producto').value,
+        cliente: document.getElementById('cliente').value,
+        prueba: document.getElementById('prueba').value,
+        bitacora: document.getElementById('bitacora').value,
+        insumos: document.getElementById('insumos').value,
+        soluciones: document.getElementById('soluciones').value,
+        equipo: document.getElementById('equipo').value,
+        condiciones: document.getElementById('condiciones').value,
+        procesamiento: document.getElementById('procesamiento').value,
+        reporte: document.getElementById('reporte').value
+      };
+
+      console.log("Datos registrados:", datos);
+      alert("Registro guardado (simulado en consola).");
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
